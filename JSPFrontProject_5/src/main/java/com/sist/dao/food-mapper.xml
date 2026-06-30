@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.food-mapper">
+	<!-- OFFSET #{start} ROWS FETCH NEXT 12 ROWS ONLY  == (MySQL) LIMIT ?,12 -->
+	<select id="foodListData" resultType="FoodVO" parameterType="int">
+		SELECT no, poster, name
+		FROM food
+		ORDER BY no ASC
+		OFFSET #{start} ROWS FETCH NEXT 12 ROWS ONLY 
+	</select>
+	
+	<select id="foodTotalPage" resultType="int">
+		SELECT count(*)
+		FROM food
+	</select>
+	
+	<select id="foodDetailData" resultType="FoodVO" parameterType="int">
+		SELECT NO, NAME, TYPE, PHONE, ADDRESS, SCORE, PARKING, POSTER, TIME, CONTENT, THEME, PRICE
+		FROM food
+		WHERE no = #{no}
+	</select>
+</mapper>
