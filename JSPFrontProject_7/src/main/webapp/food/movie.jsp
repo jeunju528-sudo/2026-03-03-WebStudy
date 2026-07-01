@@ -33,7 +33,7 @@ const search= async(fd)=>{
 	try
 	{
 		// fetch => 비동기로 받는다 (Jquery에서는 Ajax) : React / Vue
-		const response = await fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=28&q='+fd+'&type=video&key=AIzaSyAkfCGtY9CsuNF479KsGaAHIdHoi6fBmnM')
+		const response = await fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=28&q='+fd+'&type=video&key=')
 	    const result=await response.json()
 	    const movie=result.items
 	    console.log(movie)
